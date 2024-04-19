@@ -21,28 +21,28 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[0]: "rs[0]"
+  ui[1]: "rs[1]"
+  ui[2]: "rs[2]"
+  ui[3]: "rs[3]"
+  ui[4]: "rt[0]"
+  ui[5]: "rt[1]"
+  ui[6]: "rt[2]"
+  ui[7]: "rt[3]"
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
+  uo[0]: "alu_out[0]"
+  uo[1]: "alu_out[1]"
+  uo[2]: "alu_out[2]"
+  uo[3]: "alu_out[3]"
   uo[4]: ""
   uo[5]: ""
   uo[6]: ""
   uo[7]: ""
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
+  uio[0]: "alu_arithmetic_mux[0]"
+  uio[1]: "alu_arithmetic_mux[1]"
   uio[2]: ""
   uio[3]: ""
   uio[4]: ""
