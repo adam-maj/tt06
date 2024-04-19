@@ -19,4 +19,4 @@ The test bench is quite simple - just testing the addition function of the ALU.
 
 ## External hardware
 
-No external hardware is needed.
+No external hardware is needed. Update.
