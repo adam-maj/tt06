@@ -15,42 +15,17 @@ module tt_um_adammaj (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-  wire device_control_write_enable;
-  wire [7:0] device_control_data;
-  wire program_mem_read_valid;
-  wire [7:0] program_mem_read_address;
-  reg program_mem_read_ready;
-  reg [15:0] program_mem_read_data;
-
-  wire data_mem_read_valid;
-  wire [7:0] data_mem_read_address;
-  reg data_mem_read_ready;
-  reg [7:0] data_mem_read_data;
-  wire data_mem_write_valid;
-  wire [7:0] data_mem_write_address;
-  wire [7:0] data_mem_write_data;
-  reg data_mem_write_ready;
-
-  gpu tt_gpu (
+  alu alu_instance (
     .clk(clk),
-    .reset(~rst_n),
-    .device_control_write_enable(device_control_write_enable),
-    .device_control_data(device_control_data),
-    .program_mem_read_valid(program_mem_read_valid),
-    .program_mem_read_address(program_mem_read_address),
-    .program_mem_read_ready(program_mem_read_ready),
-    .program_mem_read_data(program_mem_read_data),
-    .data_mem_read_valid(data_mem_read_valid),
-    .data_mem_read_address(data_mem_read_address),
-    .data_mem_read_data(data_mem_read_data),
-    .data_mem_write_valid(data_mem_write_valid),
-    .data_mem_write_address(data_mem_write_address),
-    .data_mem_write_data(data_mem_write_data),
-    .data_mem_write_ready(data_mem_write_ready)
+    .reset(rst_n),
+    .rs(ui_in[3:0]),
+    .rt(ui_in[7:4]),
+    .alu_arithmetic_mux(uio_in[1:0]),
+    .alu_out(alu_out)
   );
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
+  assign uo_out  = {4'b0,alu_out};  // Example: ou_out is the sum of ui_in and uio_in
   assign uio_out = 0;
   assign uio_oe  = 0;
 endmodule
