@@ -15,6 +15,8 @@ module tt_um_adammaj (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
+  wire [3:0] alu_out;
+  
   alu alu_instance (
     .clk(clk),
     .reset(rst_n),
