@@ -1,4 +1,5 @@
 `default_nettype none
+
 module alu (
 	input wire clk,
 	input wire reset,
